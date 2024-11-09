@@ -1,7 +1,7 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas } from '@react-three/fiber'
 
 const ThreeScene = ({ children }) => {
-  return <Canvas>{children}</Canvas>;
-};
+  return <Canvas>{children}</Canvas>
+}
 
-export default ThreeScene;
+export default ThreeScene

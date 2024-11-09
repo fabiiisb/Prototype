@@ -1,12 +1,13 @@
-import { Suspense, lazy } from "react";
-import wire1 from "./assets/wire1.svg";
-import wire2 from "./assets/wire2.svg";
-import wire3 from "./assets/wire3.svg";
-const LazyThreeObject = lazy(() => import("./components/three/mainThree"));
-import { motion } from "framer-motion";
+import { Suspense, lazy } from 'react'
+import wire1 from './assets/wire1.svg'
+import wire2 from './assets/wire2.svg'
+import wire3 from './assets/wire3.svg'
+import { motion } from 'framer-motion'
+import Loading from './components/Loading'
+const LazyThreeObject = lazy(() => import('./components/three/mainThree'))
 
-function App() {
-  let title = "PROTOTYPE";
+function App () {
+  const title = 'PROTOTYPE'
 
   return (
     <main>
@@ -43,24 +44,7 @@ function App() {
         </div>
       </motion.menu>
     </main>
-  );
+  )
 }
 
-export default App;
-
-function Loading() {
-  return (
-    <div className="container">
-      <div className="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  );
-}
+export default App
