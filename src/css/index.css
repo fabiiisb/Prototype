@@ -4,33 +4,51 @@
 }
 
 :root {
-  --main-bg-color: #0e0e0e93;
-  --main-white-color: #ffffffde;
+  --main-bg-color: #0E0E0E;
+  --main-white-color: #DFDFDF;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: dark;
   color: var(--main-white-color);
-  background-image: url(../assets/bg3.png);
+
+  background-color: hsla(0, 0%, 5%, 1);
+  background:
+    radial-gradient(at 0% 0%, hsla(348, 78%, 59%, 0.34) 0px, transparent 50%),
+    radial-gradient(at 94% 91%, hsla(348, 78%, 59%, 0.25) 0px, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-main{
+main {
   max-width: 600px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-h1,h2{
+h1,
+h2 {
   text-align: center;
-  font-size: 70px;
+  font-size: 76.3px;
+  font-family: 'grotesk';
+  overflow-wrap: break-word;
+  line-height: 1;
+  letter-spacing: 3px;
+}
+
+h3,
+h4 {
   font-family: 'grotesk';
   overflow-wrap: break-word;
   line-height: 1;
@@ -38,81 +56,153 @@ h1,h2{
   
 }
 
-h2{
+h2 {
   -webkit-text-stroke: 1px var(--main-white-color);
-  color: transparent; 
-  
+  color: transparent;
 }
 
-section {
+.three-object-section {
   height: 450px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #DFDFDF;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
 }
 
-menu{
-  height: 150px;
-  max-width: 520px;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;   /* alinea las cosas en filas */
-  flex-direction: row;   /* define si el flex sera en forma de filas o columnas */
-  background-color: var(--main-bg-color);
-}
-
-.menu-slot {
-  height: 100%;
-  border: 1px solid var(--main-white-color);
-  text-align: center;
-  width: calc(33.33%);
-  padding: 10px; 
-}
-
-.menu-slot:first-child {
- border-right: none;
-}
-
-.menu-slot:last-child {
-  border-left: none;
-}
-
-.menu-slot img { 
-  height: 100%;
+.three-scene {
+  position: relative;
+  z-index: 10;
   width: 100%;
+  height: 100%;
+}
+
+.three-object-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7;
+  scale: 1.03;
+}
+
+.flex-box1 {
+  display: flex;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+
+}
+
+.flex-box1 div:first-child {
+  border: 1px solid #DFDFDF;
+  width: 80%;
+  overflow: hidden;
+}
+
+.flex-box1 div:first-child img {
+  margin-top: 7px;
+  width: 600px;
+  height: 300px;
+  scale: 1.5;
+}
+
+.flex-box1 div:last-child {
+  border: 1px solid #DFDFDF;
+  width: 25%;
+  overflow: hidden;
+}
+
+.flex-box1 div:last-child img {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-box2 {
+  display: flex;
+  gap: 10px;
+}
+
+.flex-box2 div:first-child{
+  width: 210%;
+}
+
+.flex-box2 div:last-child{
+  width: 100%;
+  height: 111px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-box2 div:last-child img {
+  scale: 2;
+  width: 150px;
+  height: 150px;
+}
+
+p {
+  font-family: 'grotesk';
+  overflow-wrap: break-word;
+  font-size: 16px;
+  color: #EA4362C9;
+  text-shadow: 0px 1px 0.8px rgba(255 255 255 / 0.3);
+  padding: 3px;
+  text-align: left;
+}
+
+span{
+  text-shadow: none;
+}
+
+p span {
+  -webkit-text-stroke: 0.3px #DFDFDF;
+  color: transparent;
 }
 
 
 @media (max-width: 580px) {
-  h1,h2{
+
+  h1,
+  h2 {
     font-size: 50px;
   }
 
   section {
     height: 300px;
-  
+
   }
 
-  menu{
+  menu {
     max-width: 370px;
   }
 }
 
 @media (max-width: 435px) {
-  h1,h2{
+
+  h1,
+  h2 {
     font-size: 40px;
   }
 
-  menu{
+  menu {
     max-width: 300px;
   }
 }
 
 @media (max-width: 345px) {
-  h1,h2{
+
+  h1,
+  h2 {
     font-size: 30px;
   }
 
-  menu{
+  menu {
     flex-direction: column;
     margin-top: auto;
     margin-bottom: auto;
@@ -120,11 +210,11 @@ menu{
 
   .menu-slot:first-child {
     border-right: 1px solid var(--main-white-color);
-   }
-   
-   .menu-slot:last-child {
-     border-left: 1px solid var(--main-white-color);
-   }
+  }
+
+  .menu-slot:last-child {
+    border-left: 1px solid var(--main-white-color);
+  }
 
   section {
     height: 230px;
@@ -132,15 +222,15 @@ menu{
 }
 
 
-
-
-
 /* Loading */
 .container {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 100%; /* Toma toda la altura de la ventana */
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+  height: 100%;
+  /* Toma toda la altura de la ventana */
 }
 
 .lds-roller {
@@ -149,10 +239,12 @@ menu{
   width: 80px;
   height: 80px;
 }
+
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   transform-origin: 40px 40px;
 }
+
 .lds-roller div:after {
   content: " ";
   display: block;
@@ -163,66 +255,84 @@ menu{
   background: #ea4363;
   margin: -4px 0 0 -4px;
 }
+
 .lds-roller div:nth-child(1) {
   animation-delay: -0.036s;
 }
+
 .lds-roller div:nth-child(1):after {
   top: 63px;
   left: 63px;
 }
+
 .lds-roller div:nth-child(2) {
   animation-delay: -0.072s;
 }
+
 .lds-roller div:nth-child(2):after {
   top: 68px;
   left: 56px;
 }
+
 .lds-roller div:nth-child(3) {
   animation-delay: -0.108s;
 }
+
 .lds-roller div:nth-child(3):after {
   top: 71px;
   left: 48px;
 }
+
 .lds-roller div:nth-child(4) {
   animation-delay: -0.144s;
 }
+
 .lds-roller div:nth-child(4):after {
   top: 72px;
   left: 40px;
 }
+
 .lds-roller div:nth-child(5) {
   animation-delay: -0.18s;
 }
+
 .lds-roller div:nth-child(5):after {
   top: 71px;
   left: 32px;
 }
+
 .lds-roller div:nth-child(6) {
   animation-delay: -0.216s;
 }
+
 .lds-roller div:nth-child(6):after {
   top: 68px;
   left: 24px;
 }
+
 .lds-roller div:nth-child(7) {
   animation-delay: -0.252s;
 }
+
 .lds-roller div:nth-child(7):after {
   top: 63px;
   left: 17px;
 }
+
 .lds-roller div:nth-child(8) {
   animation-delay: -0.288s;
 }
+
 .lds-roller div:nth-child(8):after {
   top: 56px;
   left: 12px;
 }
+
 @keyframes lds-roller {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

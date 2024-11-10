@@ -1,14 +1,13 @@
-import { Suspense, lazy } from 'react'
-import wire1 from './assets/wire1.svg'
-import wire2 from './assets/wire2.svg'
-import wire3 from './assets/wire3.svg'
-import { motion } from 'framer-motion'
 import Loading from './components/Loading'
+import { Suspense, lazy } from 'react'
+import { motion } from 'framer-motion'
+import malla from './assets/malla.png'
+import agujero from './assets/wire2.svg'
+import montaña from './assets/montañas.png'
+import espiral from './assets/espiral.png'
 const LazyThreeObject = lazy(() => import('./components/three/mainThree'))
 
 function App () {
-  const title = 'PROTOTYPE'
-
   return (
     <main>
       <motion.header
@@ -16,10 +15,12 @@ function App () {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
       >
-        <h1>{title}</h1>
-        <h2>{title}</h2>
+        <div>
+          <h1>PROTOTYPE</h1>
+        </div>
       </motion.header>
       <motion.section
+        className='three-object-section'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
@@ -27,22 +28,35 @@ function App () {
         <Suspense fallback={Loading()}>
           <LazyThreeObject />
         </Suspense>
+        <img src={malla} alt="wireframe" />
       </motion.section>
-      <motion.menu
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
       >
-        <div className="menu-slot">
-          <img src={wire2} alt="wireframe" />
+        <div>
+          <h2>SYNTHESES</h2>
         </div>
-        <div className="menu-slot">
-          <img src={wire3} alt="wireframe" />
+        <div className='flex-box1'>
+          <div>
+            <img src={montaña} alt="wireframe" />
+          </div>
+          <div>
+            <img src={agujero} alt="wireframe" />
+          </div>
         </div>
-        <div className="menu-slot">
-          <img src={wire1} alt="wireframe" />
+        <div className='flex-box2'>
+          <div>
+            <p>
+            UNLEASH THE POWER OF <span>PROTOTYPE</span>  AND THE CHAOS OF <span>SYNTHESIS</span>. WHERE IDEAS COLLIDE, EVOLVE, AND TRANSFORM INTO SOMETHING BEYOND IMAGINATION.
+            </p>
+          </div>
+          <div>
+            <img src={espiral} alt="" />
+          </div>
         </div>
-      </motion.menu>
+      </motion.div>
     </main>
   )
 }
